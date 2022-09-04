@@ -1,0 +1,38 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #6b00fd;
+    --primary-color-hover: #5E2DF0;
+    --secondary-color: #39ccdd;
+    --dark-color: #272a31;
+    --white-color: #ffffff;
+}
+
+.navigateLink {
+    background-color: transparent;
+    color: var(--white-color);
+    font-size: 1em;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    margin: 0.5rem 0.4rem;
+}
+
+.navigateLink:hover {
+    color: var(--secondary-color);
+}
+
+.navigateLinkActive {
+    background-color: transparent;
+    color: var(--secondary-color);
+    font-size: 1em;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    margin: 0.5rem 0.4rem;
+}
+
+.navigateLinkActive:hover {
+    color: var(--secondary-color);
+}
