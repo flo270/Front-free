@@ -6,9 +6,8 @@ import SubmitButton from '../../components/submitButton/SubmitButton';
 import { motion } from "framer-motion";
 
 const Admin = () => {
-  const [users, setUsers] = useState({
-    _id:"",nombreCompleto:"",email:"",password:"",admin:"" 
-  });
+  const [users, setUsers] = useState([
+  ]);
   const baseUrl="http://localhost:8080";
   const getAllUsers = async () => {
     try {
@@ -75,7 +74,7 @@ const Admin = () => {
         </thead>
         <tbody>
          { 
-          users?.map((user,id)=>(
+          /* users?.map((user,id)=>(
             <tr key={id}>
               <td>{user.nombreCompleto}</td>
               <td>{user.email}</td>
@@ -83,11 +82,11 @@ const Admin = () => {
               <td>{user.Admin}</td>
               <td><button>Detalle</button></td>
             </tr>
-          ))
-         /* users?.map((user) => (
+          ))*/
+         users?.map((user) => (
            
             <AdminUserTable user={user} key={user._id} />
-          )) */
+          )) 
           }
         </tbody>
       </table>
