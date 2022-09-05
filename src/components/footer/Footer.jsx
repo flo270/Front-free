@@ -1,31 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import styles from '../footer/Footer.module.css'
 const Footer = () => {
+  const {foot, text}=styles
   return (
-    <div className='conteiner-fluid row bg-dark'>
-        <div className='col-6'>
-            <div className='col-xs-6 col-lg-6 d-flex justify-content-center align-items-center'>
-            <Link to='/' className='text-white text-decoration-none'>Home</Link>
-            </div>
-            <div className='col-xs-6 col-lg-6 d-flex justify-content-center align-items-center'>
-            <Link to='/' className='text-white text-decoration-none'>Home</Link>
-            </div>
-            <div className='col-xs-6 col-lg-6 d-flex justify-content-center align-items-center'>
-            <Link to='/login' className='text-white text-decoration-none'>Login</Link>
-            </div>
+    <nav className={`navbar navbar-expand-lg navbar-light ${foot}`}>
+      <div className={`container-fluid `}>
+        <Link className={`navbar-brand ${text}`} to="/">Consultorio Medico</Link>
+        <div className={`col-6 ${text}`} id="navbarNav">
+          <ul className={`navbar-nav `}>
+            <li className={`nav-item `}>
+              <Link className={`nav-link active ${text}`} aria-current="page" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link active ${text}`} to="/">Servicio</Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link active ${text}`} to="/register">Registrarse</Link>
+            </li>
+            <li className="nav-item">
+              <Link className={`nav-link active ${text}`} to="/"  aria-disabled="true">Disabled</Link>
+            </li>
+          </ul>
         </div>
-        <div className='col-6'>
-            <div className='col-xs-12 col-lg-6 d-flex justify-content-center align-items-center'>
-            <Link to='/' className='text-white text-decoration-none'>1</Link>
-            </div>
-            <div className='col-xs-12 col-lg-6 d-flex justify-content-center align-items-center'>
-            <Link to='/' className='text-white text-decoration-none'>2</Link>
-            </div>
-            <div className='col-xs-12 col-lg-6 d-flex justify-content-center align-items-center'>
-            <Link to='/' className='text-white text-decoration-none'>3</Link>
-            </div>
-        </div>      
-    </div>  
+      </div>
+    </nav>
   )
 }
 

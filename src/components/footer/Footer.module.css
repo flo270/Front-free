@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Philosopher-Regular';
+    src: url(".././../asserts/font/Philosopher-Regular.ttf");
+  }
+:root {
+    --primary-color: #e4c5c4;
+    --primary-color-hover:#c8ad8d;
+    --secondary-color: #6f7357;
+    --dark-color: #273a2d;
+    --white-color:#ebe6ea;
+}
+.foot{
+    background-color: var(--dark-color) !important;
+    font-size: "Philosopher-Regular" !important;
+}
+.text{
+    color: var(--white-color) !important;
+    font-size: "Philosopher-Regular" !important;
+}
+.text:hover{
+    color:var(--primary-color-hover) !important;
+    font-size: "Philosopher-Regular" !important;
+}

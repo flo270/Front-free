@@ -6,7 +6,7 @@ import axios from 'axios'
 import { tokenInvalid } from '../utils/ValidacionToken'
 
 const Login = () => {
-    const navigate=useNavigate()
+const navigate = useNavigate()
 const [email, setEmail] = useState()
 const [password, setPassword] = useState()
 
@@ -25,7 +25,7 @@ if(email===undefined || password===undefined){
             localStorage.setItem("token", response.data.token)
             localStorage.setItem("admin", response.data.admin)
             window.location.reload()
-            navigate("/loginsucces")
+            navigate("/loginSuccess")
         }
         )
     } catch (error) {
@@ -36,7 +36,7 @@ if(email===undefined || password===undefined){
 useEffect(() => {
  const token = tokenInvalid()
  if(!token.invalidToken){
-    navigate('/home')
+    navigate("/");
   }
 }, [])
 
