@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Philosopher-Regular";
+    src: url(".././../asserts/font/Philosopher-Regular.ttf");
+  }
+  :root {
+      --primary-color: #e4c5c4;
+      --primary-color-hover:#c8ad8d;
+      --secondary-color: #6f7357;
+      --dark-color: #273a2d;
+      --white-color:#ebe6ea;
+  }
+  .button{
+    background-color: #273a2d;
+    color: var(--primary-color);
+    border-radius: 10px;
+    padding: 2px;
+    margin: 10px;
+  }
+  .button:hover{
+    background-color: var(--primary-color-hover);
+    color:var(--white-color)
+  }

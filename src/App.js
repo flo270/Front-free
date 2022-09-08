@@ -8,6 +8,10 @@ import Admin from '../src/pages/administrador/admin'
 import LoginSuccess from './pages/LoginSuccess';
 import RegSuccess from './pages/RegSuccess';
 import AdminUser from '../src/components/administracionUser/AdminUser'
+import AdminMedico from './pages/adminMedicos/adminMedico';
+import AdminDetalleMedico from './components/adminDetalleMedico/AdminDetalleMedico';
+import AdminMedicoCrear from './components/adminMedicoCrear/AdminMedicoCrear';
+import PacientePage from './pages/pacientePage/pacientePage';
 function App() {
   return (
     <BrowserRouter>
@@ -22,9 +26,11 @@ function App() {
           <Route path="/loginSuccess" element={<LoginSuccess/>} />
           <Route path="/regSuccess" element={<RegSuccess/>} />
           <Route path="/adminUser" element={<AdminUser/>} />
-          {/* <Route path="/adminMedico" element={<Admin/>} />
-          <Route path="/adminMedico" element={<Admin/>} />
-          <Route path="/adminPaciente" element={<Admin/>} /> */}
+          <Route path="/adminMedico" element={<AdminMedico/>} />
+          <Route path="/detalle/:_id" element={<AdminDetalleMedico/>}/>
+          <Route path='/crearMedico' element={<AdminMedicoCrear/>}/>
+          <Route path='/paciente' element={<PacientePage/>}/>
+          {/*  <Route path="/adminPaciente" element={<Admin/>} /> */}
         </Routes>
         <Footer/>
     </BrowserRouter>

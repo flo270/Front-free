@@ -1,13 +1,18 @@
 import React, {useState,useEffect} from 'react'
 import axios from 'axios';
 import AdminUserTable from '../../components/addUserTable/AdminUserTable'
-import AddUserModalComp from '../../components/addUserModalComp/AddUserModalComp'
-import SubmitButton from '../../components/submitButton/SubmitButton';
+import AddUserModalComp from '../../components/addUserModalComp/AddUserModalComp';
+import { useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
+import styles from '../administrador/Admin.module.css'
+import SubmitButton from '../../components/submitButton/SubmitButton';
 
 const Admin = () => {
-  const [users, setUsers] = useState([
-  ]);
+
+  const{body,table,button}=styles
+const navigate=useNavigate()
+  const [users, setUsers] = useState([]);
+  
   const baseUrl="http://localhost:8080";
   const getAllUsers = async () => {
     try {
@@ -17,8 +22,8 @@ const Admin = () => {
           "access-token": token,
         },
       });
-      console.log(getUsers.data)
-      setUsers(getUsers.data);
+      console.log(getUsers.data.users)
+      setUsers(getUsers.data.users);
     } catch (error) {
       console.log(error.response.data);
     }
@@ -32,58 +37,45 @@ const Admin = () => {
     <motion.div
     initial={{ opacity: 0, scale: 0 }}
     animate={{ opacity: 1, scale: 1 }}
-    transition={{ delay: 0.1 }}
-  >
-    <section className="m-5">
+    transition={{ delay: 0.1 }}  
+    className={`conteiner-fluid justify-content-center align-items-center ${body}`}>
+      <section className={`p-1 ${body}`}>
+        <button className={`${button}`} onClick={()=>navigate('/adminMedico')}>Administrar Medicos y horarios</button>
+        
+        <SubmitButton  mensage={"Administrar turnos"}/>
+      </section>
+    <section className={`m-5 ${body}`}>
       <div className="container-fluid">
         <div className="row justify-content-around">
           <h2 className="col-12 col-lg-6 text-center display-4">
-            Tabla de usuarios
+            Administracion de usuarios
           </h2>
           <div className="col-12 col-lg-6">
-            <SubmitButton
-              mensage={"Agregar usuario"}
-              dataBsToggle="modal"
-              dataBsTarget="#addUserModal"
-            />
-            <AddUserModalComp />
+          <SubmitButton
+                mensage={"Agregar usuario"}
+                dataBsToggle="modal"
+                dataBsTarget="#addUserModal"
+              />
+              <AddUserModalComp />
           </div>
         </div>
       </div>
       <table
-        className={`table table-dark table-hover table-responsive `}
+        className={`table table-hover table-responsive ${table} mx-auto`}
       >
         <thead>
           <tr>
-            <th scope="col" className="p-3">
-              Nombre completo
-            </th>
-            <th scope="col" className="p-3">
-              Email
-            </th>
-            <th scope="col" className="p-3">
-              Admin
-            </th>
-            <th scope="col" className="p-3">
-              Estado
-            </th>
-            <th scope="col" className="p-3">
-              Opciones
-            </th>
+            <th scope="col" className="p-3"> Nombre completo</th>
+            <th scope="col" className="p-3">Email </th>
+            <th scope="col" className="p-3">Admin </th>
+            <th scope="col" className="p-3">Estado </th>
+            <th scope="col" className="p-3">Opciones </th>
           </tr>
         </thead>
         <tbody>
          { 
-          /* users?.map((user,id)=>(
-            <tr key={id}>
-              <td>{user.nombreCompleto}</td>
-              <td>{user.email}</td>
-              <td>{user.password}</td>
-              <td>{user.Admin}</td>
-              <td><button>Detalle</button></td>
-            </tr>
-          ))*/
-         users?.map((user) => (
+         
+          users?.map((user) => (
            
             <AdminUserTable user={user} key={user._id} />
           )) 

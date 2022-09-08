@@ -19,7 +19,6 @@ const NavBar = () => {
 //verificacion login
   const verifyLogin = () => {
     const token = tokenInvalid()
-    // let tokenExist = localStorage.getItem("token") ? true : false
     setIsLogged(!token.invalidToken)
     setAdminProfile((token.decode?.admin)? true : false)
   }
@@ -53,6 +52,11 @@ const NavBar = () => {
               <NavLink className = {({ isActive }) =>isActive ? `${navigateLinkActive}` : `${navigateLink}`} to={"/admin"} 
               onClick={() => verifyLogin()}> Administrador </NavLink>}
             </li> 
+            <li className="nav-item m-2">
+              { (isLogged && adminProfile) && 
+              <NavLink className = {({ isActive }) =>isActive ? `${navigateLinkActive}` : `${navigateLink}`} to={"/paciente"} 
+              onClick={() => verifyLogin()}> Paciente </NavLink>}
+            </li>
           </ul>
           <ul className="navbar-nav m-3">
             <li xs="auto" className="m-0">

@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios';
 import SubmitButton from '../submitButton/SubmitButton';
+
+
 const AdminUserTable = ({user}) => {
   const { email, nombreCompleto, admin, banned, _id, password } = user;
 
@@ -56,7 +58,7 @@ const AdminUserTable = ({user}) => {
       <td>{`${admin}`}</td>
       <td>{`${banned}`}</td>
       <td>
-        {banned ? <SubmitButton mensage={"Activar"} handlerClick={activeUser} /> : <SubmitButton mensage={"Desactivar"} handlerClick={bannUser} />}
+        {banned ? <SubmitButton mensage={"Activar"} handlerClick={activeUser}/> : <SubmitButton mensage={"Desactivar"} handlerClick={bannUser} />}
       </td>
     </tr>
   );

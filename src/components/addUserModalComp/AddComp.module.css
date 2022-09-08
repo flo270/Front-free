@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'Philosopher-Regular';
+    src: url(".././../asserts/font/Philosopher-Regular.ttf");
+  }
+  :root {
+      --primary-color: #e4c5c4;
+      --primary-color-hover:#c8ad8d;
+      --secondary-color: #6f7357;
+      --dark-color: #273a2d;
+      --white-color:#ebe6ea;
+  }
+  
+  .body{
+      background-color: var(--secondary-color);
+      font-family:'Philosopher-Regular';
+  }
+  .form{
+      background-color: #273a2d;
+      border-radius: 10px;
+      border: var(--dark-color)
+  }
+  .img{
+    color:var(--white-color);
+    background-color: var(--secondary-color);
+  }
+  .border{
+      border: 1px solid;
+      border-color: var(--white-color);
+      box-shadow: 1px 1px 6px 6px var(--dark-color);
+    }
+    .input{
+      color:var(--white-color);
+      background-color: var(--primary-color-hover);
+    }
+   
+    .inputBorder{
+      border: 2px solid !important;
+      border-color: var(--primary-color) !important;
+    }
+    .button{
+      background-color: #273a2d;
+      color: var(--primary-color)
+    }
+    .button:hover{
+      background-color: var(--primary-color-hover);
+    }
+    .title{
+      color:var(--white-color);
+    }
+   
