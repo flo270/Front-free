@@ -15,6 +15,7 @@ const NavBar = () => {
   //estados para el login
   const [isLogged, setIsLogged] = useState(false)
   const [adminProfile, setAdminProfile] = useState(false)
+
   const navigate=useNavigate()
 //verificacion login
   const verifyLogin = () => {
@@ -25,6 +26,7 @@ const NavBar = () => {
   useEffect(() => {
     verifyLogin()
   }, [])
+ 
   
   return (
     <nav className={`navbar navbar-expand-lg navbar-light ${nav} `}>
@@ -56,6 +58,11 @@ const NavBar = () => {
               { (isLogged && adminProfile) && 
               <NavLink className = {({ isActive }) =>isActive ? `${navigateLinkActive}` : `${navigateLink}`} to={"/paciente"} 
               onClick={() => verifyLogin()}> Paciente </NavLink>}
+            </li>
+            <li className="nav-item m-2">
+              { (isLogged && adminProfile) && 
+              <NavLink className = {({ isActive }) =>isActive ? `${navigateLinkActive}` : `${navigateLink}`} to={"/consulta"} 
+              onClick={() => verifyLogin()}> Consultas </NavLink>}
             </li>
           </ul>
           <ul className="navbar-nav m-3">

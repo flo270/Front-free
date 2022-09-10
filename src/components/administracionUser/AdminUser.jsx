@@ -60,7 +60,7 @@ const AdminUser = () => {
             </th>
             <th scope="col" className="p-3">
               Admin
-            </th>
+            </th> 
             <th scope="col" className="p-3">
               Estado
             </th>

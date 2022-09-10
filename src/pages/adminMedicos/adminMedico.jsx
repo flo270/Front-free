@@ -4,11 +4,11 @@ import { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from '../adminMedicos/adminmedico.module.css'
 const AdminMedico = () => {
-  const {body,table,border,input,button,title,buttonDelete}=styles
+const {body,table,border,input,button,title,buttonDelete}=styles
 const [medico, setMedico] = useState([{
   _id:"",nombreCompleto:"",especialidad:"",horario:""
 }])
-
+const [medicoAux, setMedicoAux] = useState()
 const [flag, setFlag] = useState(false)
 
 const navigate=useNavigate()
@@ -19,7 +19,7 @@ const getAllMedicos=()=>{
   .then(response=>{
     console.log(response.data)
     setMedico(response.data)
-  
+    setMedicoAux(response.data)
   })
 }
 useEffect(() => {
@@ -33,9 +33,7 @@ useEffect(() => {
   }else{
     alert('Hubo un error para acceder al detalle de medico')
   
-  }
-  
-  }
+  }}
   const borrarMedico=(_id)=>{
     console.log(_id)
     if (window.confirm("¿Estas seguro de borrar el registro de medico?")){
@@ -51,11 +49,29 @@ useEffect(() => {
     } else {
       alert('HUBO UN PROBLEMA Y EL REGISTRO NO SE ELIMINO, ERROR')
       
+    } }
+
+  const handleChange=(e)=>{
+    if (e.length >= 3) {
+    const filterMedicos = medicoAux.filter((med)=>{
+      if (med.nombreCompleto.toLowerCase().indexOf(e.toLowerCase())!==-1
+           ||med.especialidad.toLowerCase().indexOf(e.toLowerCase())!==-1) {
+         return med
+        }
+        })
+         setMedico(filterMedicos)
+       }else{
+        getAllMedicos()
+        }
     }
-  }
+
   return (
-    <div className={`container-fluid ${body}`}>
+  <div className={`container-fluid ${body}`}>
     <h1 className={`${title}`}>Panel de administracion de medico</h1>
+    <div class="mb-3">
+        <label  className={`form-label `}>Buscar por nombre completo /especialidad</label>
+        <input type="text" className={`form-control ${input} ${border}`} onChange={(e) => handleChange(e.target.value)} id="exampleFormControlInput1"/>
+    </div>
     <div className= " row mt-5 justify-content-center">
     {<div>
         <button className={`btn d-flex justify-contect-start ${button} ${border} m-2`}onClick={()=>navigate('/crearMedico')}>
@@ -92,7 +108,7 @@ useEffect(() => {
       </div> 
       } 
     </div>        
-</div>
+  </div>
   )
 }
 

@@ -4,7 +4,7 @@ import SubmitButton from '../submitButton/SubmitButton';
 
 
 const AdminUserTable = ({user}) => {
-  const { email, nombreCompleto, admin, banned, _id, password } = user;
+  const { email, nombreCompleto, admin, banned, _id, password} = user;
 
   const token = localStorage.getItem("token")
   const baseUrl="http://localhost:8080/users";
@@ -17,7 +17,7 @@ const AdminUserTable = ({user}) => {
         email: email,
         password: password,
         banned: true,
-        admin: admin
+        admin: admin,
       }, {
         headers: {
           "access-token": token,
@@ -37,7 +37,7 @@ const AdminUserTable = ({user}) => {
         email: email,
         password: password,
         banned: false,
-        admin: admin
+        admin: admin,
       }, {
         headers: {
           "access-token": token,
@@ -57,9 +57,11 @@ const AdminUserTable = ({user}) => {
       <td>{`${email}`}</td>
       <td>{`${admin}`}</td>
       <td>{`${banned}`}</td>
+     
       <td>
         {banned ? <SubmitButton mensage={"Activar"} handlerClick={activeUser}/> : <SubmitButton mensage={"Desactivar"} handlerClick={bannUser} />}
       </td>
+      
     </tr>
   );
 }
