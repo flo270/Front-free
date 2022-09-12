@@ -11,7 +11,7 @@ const ModificarPaciente = () => {
     const [dni, setDni] = useState()
     const [sexo, setSexo] = useState()
     const [telefono, setTelefono] = useState()
-
+const [num_hc, setNum_hc] = useState()
     const navigate =useNavigate()
 
     const baseUrl ='http://localhost:8080'
@@ -26,6 +26,7 @@ const ModificarPaciente = () => {
          setDni(response.data.getIdPaciente.dni)
          setSexo(response.data.getIdPaciente.sexo)
          setTelefono(response.data.getIdPaciente.telefono)
+         setNum_hc(response.data.getIdPaciente.num_hc)
     }) 
  }
  useEffect(() => {
@@ -35,7 +36,7 @@ const ModificarPaciente = () => {
     const handleSumit=(e)=>{
         e.preventDefault()
         if(nombre=== undefined ||apellido=== undefined || fecha_nacimiento===undefined
-            || sexo===undefined||telefono===undefined || dni ===undefined){
+            || sexo===undefined||telefono===undefined || dni ===undefined || num_hc===undefined){
                 alert("Todos los campos son obligatorios")
         }else{
             try {
@@ -45,7 +46,8 @@ const ModificarPaciente = () => {
                 fecha_nacimiento:fecha_nacimiento,
                 dni:dni,
                 sexo:sexo,
-                telefono:telefono
+                telefono:telefono,
+                num_hc:num_hc
               })
               .then((res)=>{
                 console.log(res.data)
@@ -100,6 +102,11 @@ const ModificarPaciente = () => {
              <label  className={`form-label d-flex justify-content-start  ${title}`}>Telefono</label>
               <input type="number" className={`form-control ${input} ${border} `} id="horario" name='horario' placeholder='Telefono' required 
                 onChange={(e)=>setTelefono(e.target.value)} value={telefono}/>
+             </div>
+             <div className="mb-3 m-2 col-6">
+              <label  className={`form-label d-flex justify-content-start  ${title}`}>n° HC</label>
+              <input type="text" className={`form-control ${input} ${border} `} id="num_hc" name='num_hc' placeholder='Numero de HC' required 
+                onChange={(e)=>setNum_hc(e.target.value)} value={num_hc}/>
              </div>
             <button type="submit" className={`btn mb-3 m-2 col-6 ${button} ${border}`}>Enviar</button>    
       </div>

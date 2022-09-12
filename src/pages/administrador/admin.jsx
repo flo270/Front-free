@@ -41,7 +41,7 @@ const navigate=useNavigate()
     className={`conteiner-fluid justify-content-center align-items-center ${body}`}>
       <section className={`p-1 ${body}`}>
         <button className={`${button}`} onClick={()=>navigate('/adminMedico')}>Administrar Medicos y horarios</button>
-        
+        <button className={`${button}`} onClick={()=>navigate('/adminImagenes')}>Administrar Imagenes</button>
         <SubmitButton  mensage={"Administrar turnos"}/>
       </section>
     <section className={`m-5 ${body}`}>

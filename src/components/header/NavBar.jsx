@@ -49,6 +49,7 @@ const NavBar = () => {
             <li className="nav-item">
               <Link to='/register' className={`nav-link ${text}`}>Registrarse</Link>
             </li>
+           
             <li className="nav-item m-2">
               { (isLogged && adminProfile) && 
               <NavLink className = {({ isActive }) =>isActive ? `${navigateLinkActive}` : `${navigateLink}`} to={"/admin"} 

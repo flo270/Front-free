@@ -9,6 +9,7 @@ const CrearPaciente = () => {
     const [dni, setDni] = useState()
     const [sexo, setSexo] = useState()
     const [telefono, setTelefono] = useState()
+    const [num_hc, setNum_hc] = useState()
 
     const navigate =useNavigate()
 
@@ -18,7 +19,7 @@ const CrearPaciente = () => {
     const handleSumit=(e)=>{
         e.preventDefault()
         if(nombre=== undefined ||apellido=== undefined || fecha_nacimiento===undefined
-            || sexo===undefined||telefono===undefined || dni ===undefined){
+            || sexo===undefined||telefono===undefined || dni ===undefined ||num_hc===undefined){
                 alert("Todos los campos son obligatorios")
         }else{
             try {
@@ -28,7 +29,8 @@ const CrearPaciente = () => {
                 fecha_nacimiento:fecha_nacimiento,
                 dni:dni,
                 sexo:sexo,
-                telefono:telefono
+                telefono:telefono,
+                num_hc:num_hc
               })
               .then((res)=>{
                 console.log(res.data)
@@ -65,7 +67,7 @@ const CrearPaciente = () => {
           </div>
           <div className="mb-3 m-2 col-6">
               <label  className={`form-label d-flex justify-content-start  ${title}`}>DNI</label>
-              <input type="text" className={`form-control ${input} ${border} `} id="dni" name='dni' placeholder='DNI' required 
+              <input type="number" className={`form-control ${input} ${border} `} id="dni" name='dni' placeholder='DNI' required 
                 onChange={(e)=>setDni(e.target.value)}/>
           </div>
           <div className="mb-3 m-2 col-6">
@@ -81,8 +83,13 @@ const CrearPaciente = () => {
          
           <div className="mb-3 m-2 col-6">
           <label  className={`form-label d-flex justify-content-start  ${title}`}>Telefono</label>
-              <input type="text" className={`form-control ${input} ${border} `} id="horario" name='horario' placeholder='Telefono' required 
+              <input type="text" className={`form-control ${input} ${border} `} id=" tel" name='tel' placeholder='Telefono' required 
                 onChange={(e)=>setTelefono(e.target.value)}/>
+          </div>
+          <div className="mb-3 m-2 col-6">
+          <label  className={`form-label d-flex justify-content-start  ${title}`}>n° HC</label>
+              <input type="text" className={`form-control ${input} ${border} `} id="num_hc" name='num_hc' placeholder='Numero de HC' required 
+                onChange={(e)=>setNum_hc(e.target.value)}/>
           </div>
           <button type="submit" className={`btn mb-3 m-2 col-6 ${button} ${border}`}>Enviar</button>    
       </div>

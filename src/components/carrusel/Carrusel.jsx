@@ -1,18 +1,31 @@
-import React from 'react'
-
+import React, {useState, useEffect} from 'react'
+//import styles from '../carrusel/Carrusel.module.css'
+import axios from 'axios'
 const Carrusel = () => {
+  const [imgFav, setImgFav] = useState([])
+//  const {img}=styles
+  const baseUrl= "http://localhost:8080";
+  const getData = async()=>{
+    const dataImg =  await axios(`${baseUrl}/imagenes` )
+    const img=dataImg.data.imagenes.filter(img=>img.fav)
+    console.log(img)
+    setImgFav(dataImg.data.imagenes.filter(img=>img.fav))
+  }
+  useEffect(()=>{
+    getData()
+  },[])
   return (
     <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
     <div className="carousel-inner">
-      <div className="carousel-item active">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_W1nY3Dn00QCZFsgiybskAPKcSXutLC_FXQ&usqp=CAU" className="d-block w-100" alt="..."/>
-      </div>
-      <div className="carousel-item">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRkA0dkteyqUgKvv8O-tXHzzvB50_ijkVM6w&usqp=CAU" className="d-block w-100" alt="..."/>
-      </div>
-      <div className="carousel-item">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTarDpccf2TzEQkpW3QMt-tM-H4CW_2xkzGYA&usqp=CAU" className="d-block w-100" alt="..."/>
-      </div>
+      {
+        imgFav?.map(x=>{
+          return <div className="carousel-item active col-12 content_carousel" key={x._id}>
+          <img src={x.img} className="d-block w-100 image_carousel" alt={x.nombre}/>
+          <div className="carousel-caption d-none d-md-block col-3 ms-0 ps-0">
+          </div>
+        </div> 
+        })
+      }
     </div>
     <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
       <span className="carousel-control-prev-icon" aria-hidden="true"></span>

@@ -12,7 +12,7 @@ const AddUserModalComp = () => {
   const [password, setPassword] = useState()
   const [secondPass, setSecondPass] = useState()
   const [admin, setAdmin] = useState(false)
-  const [adminMed, setAdminMed] = useState(false)
+ 
 
   const baseUrl="http://localhost:8080";
 
@@ -24,9 +24,7 @@ const AddUserModalComp = () => {
       email === undefined ||
       password === undefined ||
       secondPass === undefined ||
-      admin === undefined||
-      adminMed === undefined
-    ) {
+      admin === undefined) {
       alert("Todos los campos son obligatorios");
     } else if (password !== secondPass) {
       alert("Las contraseñas deben coincidir");
@@ -42,7 +40,6 @@ const AddUserModalComp = () => {
               email: email,
               password: password,
               admin: admin,
-              adminMed:adminMed,
               banned: false
             })
             .then(()=>{
@@ -89,15 +86,7 @@ const AddUserModalComp = () => {
                <option value={true} className={` ${input} ${inputBorder}`}>Administrador</option>
             </select>
         </div>
-        <div className="input-group mb-3">
-            <label className={`input-group-text ${img} `} htmlFor="inputGroupSelect01"><box-icon name="lock" color="#ffffff" ></box-icon></label>
-            <select className={`form-select ${input} ${inputBorder}`} id="inputGroupSelect01" defaultValue="Usuario" onChange={(e)=>setAdminMed(e.target.value)} >
-              <option className={` ${input} ${inputBorder}`}>Seleccione una condicion</option>
-              <option value={false} className={` ${input} ${inputBorder}`}>No Medico</option>
-               <option value={true} className={` ${input} ${inputBorder}`}>Medico</option>
-            </select>
-        </div>
-        <div className={`mb-3`}>
+       <div className={`mb-3`}>
           <SubmitButton mensage={"Enviar"} className={`mb-3 ${button}`} /> 
         </div>
     </form>

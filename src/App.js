@@ -15,6 +15,11 @@ import PacientePage from './pages/pacientePage/pacientePage';
 import CrearPaciente from './components/crearpaciente/CrearPaciente';
 import ModificarPaciente from './components/moificarPaciente/ModificarPaciente';
 import ConsultaPage from './pages/consulta/consultaPage';
+import CrearConsulta from './components/crearConsulta/CrearConsulta';
+import ModificarConsulta from './components/modificarConsulta/ModificarConsulta';
+import AdminImgPage from './pages/AdminImg/AdminImgPage';
+import CrearImg from './components/crearImg/CrearImg';
+
 function App() {
   return (
     <BrowserRouter>
@@ -36,6 +41,10 @@ function App() {
           <Route path="/detallePaciente/:_id" element={<ModificarPaciente/>}/>
           <Route path='/crearPaciente' element={<CrearPaciente/>}/>
           <Route path='/consulta' element={<ConsultaPage/>}/>
+          <Route path='/crearConsulta' element={<CrearConsulta/>}/>
+          <Route path='/modificarConsulta/:_id' element={<ModificarConsulta/>}/>
+          <Route path='/adminImagenes' element={ <AdminImgPage/>}/>
+          <Route path='/crearImg' element={<CrearImg/>}/>
           {/*  <Route path="/adminPaciente" element={<Admin/>} /> */}
         </Routes>
         <Footer/>

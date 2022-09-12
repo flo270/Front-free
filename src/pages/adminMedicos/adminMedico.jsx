@@ -68,7 +68,7 @@ useEffect(() => {
   return (
   <div className={`container-fluid ${body}`}>
     <h1 className={`${title}`}>Panel de administracion de medico</h1>
-    <div class="mb-3">
+    <div className="mb-3">
         <label  className={`form-label `}>Buscar por nombre completo /especialidad</label>
         <input type="text" className={`form-control ${input} ${border}`} onChange={(e) => handleChange(e.target.value)} id="exampleFormControlInput1"/>
     </div>

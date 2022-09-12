@@ -39,9 +39,9 @@ const handleChange=(e)=>{
 
 
   return (
-    <div className={`container-fluid ${body}`}>
+  <div className={`container-fluid ${body}`}>
     <h1 className={`${title}`}>Panel de administracion de Pacientes</h1>
-    <div class="mb-3">
+    <div className="mb-3">
         <label  className={`form-label `}>Buscar por Apellido / DNI / Nombre</label>
         <input type="text" className={`form-control ${input} ${inputBorder}`} onChange={(e) => handleChange(e.target.value)} id="exampleFormControlInput1"/>
     </div>
@@ -62,6 +62,7 @@ const handleChange=(e)=>{
                 <th scope="col">DNI</th>
                 <th scope="col">sexo</th>
                 <th scope="col">Telefono</th>
+                <th scope="col">N° HC</th>
                 <th scope="col">Opciones</th>
               </tr>
             </thead>
