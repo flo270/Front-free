@@ -3,13 +3,14 @@ import React from 'react'
 import { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from '../adminMedicos/adminmedico.module.css'
+import TablaMedico from '../../components/tablaMedico/TablaMedico'
 const AdminMedico = () => {
-const {body,table,border,input,button,title,buttonDelete}=styles
+const {body,table,border,input,button,title}=styles
 const [medico, setMedico] = useState([{
-  _id:"",nombreCompleto:"",especialidad:"",horario:""
+ 
 }])
 const [medicoAux, setMedicoAux] = useState()
-const [flag, setFlag] = useState(false)
+
 
 const navigate=useNavigate()
 const baseUrl= "http://localhost:8080";
@@ -24,33 +25,9 @@ const getAllMedicos=()=>{
 }
 useEffect(() => {
   getAllMedicos()  
-  }, [flag]) 
+  }, []) 
 
- const modificarMedico=(_id)=>{
-  console.log(_id)
-  if (_id!=null){   
-    navigate(`/detalle/${_id}`)
-  }else{
-    alert('Hubo un error para acceder al detalle de medico')
-  
-  }}
-  const borrarMedico=(_id)=>{
-    console.log(_id)
-    if (window.confirm("¿Estas seguro de borrar el registro de medico?")){
-      axios.delete(`${baseUrl}/medico/${_id}`)
-      .then(response=>{
-        setFlag(!flag)
-        if (response.status===201) {
-          alert('EXITO AL ELIMIAR EL REGISTRO')
-        }else{
-          alert('ALGO SALIO MAL Y EL REGISTRO PERSISTE')
-        }
-      })  
-    } else {
-      alert('HUBO UN PROBLEMA Y EL REGISTRO NO SE ELIMINO, ERROR')
-      
-    } }
-
+ 
   const handleChange=(e)=>{
     if (e.length >= 3) {
     const filterMedicos = medicoAux.filter((med)=>{
@@ -64,6 +41,7 @@ useEffect(() => {
         getAllMedicos()
         }
     }
+
 
   return (
   <div className={`container-fluid ${body}`}>
@@ -89,16 +67,8 @@ useEffect(() => {
             </thead>
             <tbody>
               {
-              medico.map((medicos,i)=>(
-                <tr key= {i}>
-                <td className={`${input}`}>{medicos.nombreCompleto}</td>
-                <td className={`${input}`}>{medicos.especialidad}</td>
-                <td className={`${input}`}>{medicos.horario}</td>
-                <td className={`${input}`}>
-                  <button className={`btn mx-2 ${button} ${border}`} onClick={()=>{modificarMedico(medicos._id)}}>Modificar </button>
-                  <button className={`btn shadow ${buttonDelete}`} onClick={()=>{borrarMedico(medicos._id)}}>Eliminar</button>
-                </td>
-                </tr>
+              medico.map((medicos)=>(
+               <TablaMedico medicos={medicos} key={medicos._id}/>
                 ))
               }  
             </tbody>

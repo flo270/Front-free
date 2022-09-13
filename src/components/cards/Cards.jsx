@@ -1,34 +1,36 @@
-import React from 'react'
-
+import React,{useState,useEffect} from 'react'
+import axios from 'axios'
+import styles from '../cards/Card.module.css'
 const Cards = () => {
+const {title,body,border,form}= styles
+
+  const [card, setCard] = useState([])
+  const baseUrl="http://localhost:8080"
+  const getData = async()=>{
+    const res =  await axios(`${baseUrl}/medico` )
+    const med= res.data
+    console.log(med)
+    setCard(res.data.filter(Cards=>Cards.fav))
+  }
+useEffect(() => {
+  getData()
+}, [])
   return (
-    <div className={`card-group`}>
-       <div className="card-group">
-            <div className="card">
-                <img src="..." className="card-img-top" alt="..."/>
-                <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                </div>
+    <div className={`card-group ${body} ${border} row p-1`}>
+      {
+        card.map(x=>{
+          return  <div className={`card-group col-6 ${body} ${border}`}  key={x._id}>
+          <div className={`card ${body}`} >
+            <div className={`card-body ${form} `}>
+            <h5 className={`card-title ${title}`}>{x.nombreCompleto}</h5>
+            <p className={`card-text`}>{x.especialidad}</p>
+            <p className={`card-text`}><small className="text-muted">{x.horario}</small></p>
             </div>
-            <div className="card">
-                <img src="..." className="card-img-top" alt="..."/>
-                <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div className="card">
-                <img src="..." className="card-img-top" alt="..."/>
-                <div className="card-body">
-                <h5 className="card-title">Card title</h5>
-                <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            </div>
+         </div>
+       </div>
+        })
+      }
+       
     </div>
   )
 }
