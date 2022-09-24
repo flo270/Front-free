@@ -6,11 +6,11 @@ import SubmitButton from '../submitButton/SubmitButton';
 import { motion } from "framer-motion";
 const AdminUser = () => {
   const [users, setUsers] = useState([]);
-  const baseUrl="http://localhost:8080/users";
+  const baseUrl="https://consultoriomedicoarg.herokuapp.com";
   const getAllUsers = async () => {
     try {
       const token = localStorage.getItem("token");
-      const getUsers = await axios(`${baseUrl}`, {
+      const getUsers = await axios(`${ baseUrl}`, {
         headers: {
           "access-token": token,
         },

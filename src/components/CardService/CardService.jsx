@@ -6,7 +6,7 @@ const CardService = () => {
     const [info, setInfo] = useState([])
     const baseUrl= "http://localhost:8080";
     const getData = async()=>{
-        const res =  await axios(`${baseUrl}/info` )
+        const res =  await axios(`${process.env.REACT_APP_URL_BASE}/info` )
         setInfo(res.data.Infoes.filter(info=>info.fav))
       }
     useEffect(() => {

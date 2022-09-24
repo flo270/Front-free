@@ -8,7 +8,7 @@ const TablaMedico = ({medicos}) => {
     const { _id,nombreCompleto,especialidad,horario,fav}=medicos
     const {border,input,button,buttonDelete}=styles
     const navigate=useNavigate()
-const baseUrl= "http://localhost:8080";
+const baseUrl= "https://backendconsultorio2-production.up.railway.app";
     const modificarMedico=(_id)=>{
         console.log(_id)
         if (_id!=null){   
@@ -51,7 +51,7 @@ const baseUrl= "http://localhost:8080";
                
        const removeFavorite = () => {
         try{
-            axios.put(`${baseUrl}/medico/${_id}`,{
+            axios.put(`${process.env.REACT_APP_URL_BASE}/medico/${_id}`,{
               nombreCompleto:nombreCompleto,
               especialidad:especialidad,
               horario:horario,

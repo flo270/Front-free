@@ -10,10 +10,10 @@ const PacientePage = () => {
     const [pacienteAux,setPacienteAux]=useState()
   
     const navigate=useNavigate()
-    const baseUrl= "http://localhost:8080";
+    const baseUrl= "https://backendconsultorio2-production.up.railway.app";
 
     const getAllMPacientes=()=>{
-        axios.get(`${baseUrl}/pac`)
+        axios.get(`${ baseUrl}/pac`)
         .then(response=>{
           setPaciente(response.data.paciente)
           setPacienteAux(response.data.paciente) 

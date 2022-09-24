@@ -16,12 +16,15 @@ useEffect(() => {
   getData()
 }, [])
   return (
-    <div className={`card-group ${body} ${border} row p-1`}>
+    <div className={`card-group ${body} row m-0`}>
+      <h2 className={`${title} d-flex justify-content-center p-3`}>
+        Nuestros Medicos
+      </h2>
       {
         card.map(x=>{
-          return  <div className={`card-group col-6 ${body} ${border}`}  key={x._id}>
+          return  <div className={`card-group col-6 ${body} `}  key={x._id}>
           <div className={`card ${body}`} >
-            <div className={`card-body ${form} `}>
+            <div className={`card-body ${form} ${border}`}>
             <h5 className={`card-title ${title}`}>{x.nombreCompleto}</h5>
             <p className={`card-text`}>{x.especialidad}</p>
             <p className={`card-text`}><small className="text-muted">{x.horario}</small></p>

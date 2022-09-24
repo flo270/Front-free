@@ -11,7 +11,7 @@ const AdminMedicoCrear = () => {
     const [horario4, setHorario4] = useState()
   
     const navigate = useNavigate()
-const baseUrl='http://localhost:8080'
+const baseUrl='https://consultoriomedicoarg.herokuapp.com'
 
 const {body,form,border,input,button,title,link}=styles
 
@@ -22,7 +22,7 @@ const handleSumit=(e)=>{
                 alert("Todos los campos son obligatorios")
         }else{
             try {
-              axios.post(`${baseUrl}/medico/crear`,{
+              axios.post(`${ baseUrl}/medico/crear`,{
                 nombreCompleto:nombreCompleto,
                 especialidad:especialidad,
                 horario:[horario1,horario2,horario3,horario4]

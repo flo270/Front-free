@@ -13,7 +13,7 @@ const ConsultaPage = () => {
     }])
 const [consultaAux, setConsultaAux] = useState()
     const navigate=useNavigate()
-    const baseUrl= "http://localhost:8080";
+    const baseUrl= "https://backendconsultorio2-production.up.railway.app";
 
     const getAllConsultas=()=>{
         axios.get(`${baseUrl}/consulta`)
@@ -37,7 +37,7 @@ const [consultaAux, setConsultaAux] = useState()
   }
   const borrarC=(_id)=>{
     if (window.confirm("¿Estas seguro de borrar el registro de consulta?")){
-      axios.delete(`${baseUrl}/consulta/${_id}`)
+      axios.delete(`${ baseUrl}/consulta/${_id}`)
       .then(response=>{
         if (response.status === 201) {
           alert('EXITO AL ELIMIAR EL REGISTRO')

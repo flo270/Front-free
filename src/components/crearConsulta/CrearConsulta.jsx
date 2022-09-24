@@ -48,7 +48,7 @@ const CrearConsulta = () => {
       }}
 
   const getAllMedicos=async()=>{
-    const AllMedicos= await axios.get(`${baseUrl}/medico`)
+    const AllMedicos= await axios.get(`${process.env.REACT_APP_URL_BASE}/medico`)
     console.log(AllMedicos.data)
    setMedicos(AllMedicos.data)
   }
@@ -56,7 +56,7 @@ const CrearConsulta = () => {
     getAllMedicos()
   }, [])
   const getAllPacientes=async()=>{
-    const AllPacientes= await axios.get(`${baseUrl}/pac`)
+    const AllPacientes= await axios.get(`${process.env.REACT_APP_URL_BASE}/pac`)
     console.log(AllPacientes.data.paciente)
    setPacientes(AllPacientes.data.paciente)
   }

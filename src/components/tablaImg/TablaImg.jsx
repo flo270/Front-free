@@ -4,7 +4,7 @@ import axios from 'axios'
 import SubmitButton from '../submitButton/SubmitButton'
 const TablaImg = ({imagenes}) => {
 const {img,nombre,fav,_id}= imagenes
-const baseUrl= "http://localhost:8080";
+const baseUrl= " https://backendconsultorio2-production.up.railway.app";
 
 const {input,buttonDelete}=styles
 
@@ -53,7 +53,7 @@ const removeFavorite = () => {
        window.location.reload()
      })
 } catch(error){
-  console.log(error)
+  console.log(error.response.data.msg)
  }
 }
   return (

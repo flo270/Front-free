@@ -6,7 +6,7 @@ import TablaImg from '../../components/tablaImg/TablaImg'
 
 const AdminImgPage = () => {
 const [imagen, setImagen] = useState([])
-const baseUrl= "http://localhost:8080";
+const baseUrl= "https://backendconsultorio2-production.up.railway.app";
 
 const getAllImg= ()=>{
     axios.get(`${baseUrl}/imagenes`)

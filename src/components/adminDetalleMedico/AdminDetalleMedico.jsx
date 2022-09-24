@@ -15,10 +15,10 @@ const AdminDetalleMedico = () => {
 
   const navigate = useNavigate()
 
-const baseUrl='http://localhost:8080'
+const baseUrl='https://consultoriomedicoarg.herokuapp.com'
 
 const getByIdOneMed=()=>{
-  axios.get(`${baseUrl}/medico/${_id}`)
+  axios.get(`${ baseUrl}/medico/${_id}`)
   .then(response=>{
     console.log(response.data.getIdMedico)
     setNombreCompleto(response.data.getIdMedico.nombreCompleto)
@@ -41,7 +41,7 @@ const handleSumit=(e)=>{
               alert("Todos los campos son obligatorios")
       }else{
           try {
-            axios.put(`${baseUrl}/medico/${_id}`,{
+            axios.put(`${ baseUrl}/medico/${_id}`,{
               nombreCompleto:nombreCompleto,
               especialidad:especialidad,
               horario:[horario1,horario2,horario3,horario4]

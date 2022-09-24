@@ -13,10 +13,10 @@ const [medicoAux, setMedicoAux] = useState()
 
 
 const navigate=useNavigate()
-const baseUrl= "http://localhost:8080";
+const baseUrl= "https://backendconsultorio2-production.up.railway.app";
 
 const getAllMedicos=()=>{
-  axios.get(`${baseUrl}/medico`)
+  axios.get(`${ baseUrl}/medico`)
   .then(response=>{
     console.log(response.data)
     setMedico(response.data)

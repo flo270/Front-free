@@ -11,7 +11,7 @@ const Register = () => {
   const [password1, setPassword1] = useState();
   const [password2, setPassword2] = useState();
   const navigate = useNavigate();
-
+  const baseUrl= "https://backendconsultorio2-production.up.railway.app";
   const handleForm = (event) => {
     event.preventDefault();
     if (
@@ -29,7 +29,7 @@ const Register = () => {
       alert("El nombre no puede superar los 25 caracteres");
     } else {
       axios
-        .post(`http://localhost:8080/users`, {
+        .post(`${ baseUrl}/users`, {
           fullname: fullName,
           email: email,
           password: password1,

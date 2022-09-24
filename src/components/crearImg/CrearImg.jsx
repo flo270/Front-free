@@ -16,7 +16,7 @@ const CrearImg = () => {
             alert("Todos los campos son obligatorios")
     }else{
         try {
-          axios.post(`${baseUrl}/imagenes/crear`,{
+          axios.post(`${process.env.REACT_APP_URL_BASE}/imagenes/crear`,{
            img:img,nombre:nombre
           })
           .then((res)=>{

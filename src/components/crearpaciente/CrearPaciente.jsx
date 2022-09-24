@@ -23,7 +23,7 @@ const CrearPaciente = () => {
                 alert("Todos los campos son obligatorios")
         }else{
             try {
-              axios.post(`${baseUrl}/pac/crear`,{
+              axios.post(`${process.env.REACT_APP_URL_BASE}/pac/crear`,{
                 nombre:nombre,
                 apellido:apellido,
                 fecha_nacimiento:fecha_nacimiento,

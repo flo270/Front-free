@@ -47,3 +47,13 @@
 .navigateLinkActive:hover {
     color: var(--primary-color-hover);
 }
+.img{
+    width: 10%;
+}
+.button{
+    background-color: #273a2d;
+    color: var(--primary-color)
+  }
+  .button:hover{
+    background-color: var(--primary-color-hover);
+  }

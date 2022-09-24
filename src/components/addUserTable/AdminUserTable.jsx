@@ -7,12 +7,12 @@ const AdminUserTable = ({user}) => {
   const { email, nombreCompleto, admin, banned, _id, password} = user;
 
   const token = localStorage.getItem("token")
-  const baseUrl="http://localhost:8080/users";
+  const baseUrl="https://consultoriomedicoarg.herokuapp.com";
   
   const bannUser = () => {
     try {
       console.log(_id);
-      axios.put(`${baseUrl}/${_id}`, {
+      axios.put(`${ baseUrl}/${_id}`, {
         nombreCompleto: nombreCompleto,
         email: email,
         password: password,
@@ -32,7 +32,7 @@ const AdminUserTable = ({user}) => {
   }
   const activeUser = () => {
     try {
-      axios.put(`${baseUrl}/${_id}`, {
+      axios.put(`${ baseUrl}/${_id}`, {
         nombreCompleto: nombreCompleto,
         email: email,
         password: password,

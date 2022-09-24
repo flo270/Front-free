@@ -16,10 +16,10 @@ const ModificarConsulta = () => {
     const [medicos, setMedicos] = useState()
     const navigate =useNavigate()
   
-    const baseUrl ='http://localhost:8080'
+    const baseUrl ='https://backendconsultorio2-production.up.railway.app'
     const {body,form,border,input,button,title,link}=styles
   const getOneConsulta=()=>{
-    axios.get(`${baseUrl}/consulta/${_id}`)
+    axios.get(`${process.env.REACT_APP_URL_BASE}/consulta/${_id}`)
     .then(response=>{
       console.log(response.data.getIdConsulta)
       setPaciente(response.data.getIdConsulta.paciente)
@@ -40,7 +40,7 @@ const ModificarConsulta = () => {
       e.preventDefault()
       if(paciente=== undefined ||fecha_consulta=== undefined ||sintomas ===undefined
           || diagnostico===undefined||tratamiento===undefined || estudios ===undefined
-           || medico===undefined || resultadoEst==undefined){
+           || medico===undefined || resultadoEst===undefined){
               alert("Todos los campos son obligatorios")
       }else{
           try {

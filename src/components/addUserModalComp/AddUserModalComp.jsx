@@ -14,7 +14,7 @@ const AddUserModalComp = () => {
   const [admin, setAdmin] = useState(false)
  
 
-  const baseUrl="http://localhost:8080";
+  const baseUrl="https://backendconsultorio2-production.up.railway.app";
 
   const addUser = (event) => {
     event.preventDefault();
@@ -35,7 +35,7 @@ const AddUserModalComp = () => {
     } else {
       try {
         axios
-            .post(`${baseUrl}/users`, {
+            .post(`${ baseUrl}/users`, {
               nombreCompleto:  nombreCompleto,
               email: email,
               password: password,

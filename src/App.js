@@ -19,6 +19,7 @@ import CrearConsulta from './components/crearConsulta/CrearConsulta';
 import ModificarConsulta from './components/modificarConsulta/ModificarConsulta';
 import AdminImgPage from './pages/AdminImg/AdminImgPage';
 import CrearImg from './components/crearImg/CrearImg';
+import ModificarInfo from './components/modificarInfo/ModificarInfo';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route path='/modificarConsulta/:_id' element={<ModificarConsulta/>}/>
           <Route path='/adminImagenes' element={ <AdminImgPage/>}/>
           <Route path='/crearImg' element={<CrearImg/>}/>
+          <Route path="/detalleInfo/:_id" element={<ModificarInfo/>}/>
           {/*  <Route path="/adminPaciente" element={<Admin/>} /> */}
         </Routes>
         <Footer/>
