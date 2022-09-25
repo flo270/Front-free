@@ -16,7 +16,7 @@ const navigate=useNavigate()
   const [users, setUsers] = useState([]);
   const [info, setInfo] = useState([])
   
-  const baseUrl="https://consultoriomedicoarg.herokuapp.com";
+  const baseUrl ='https://backendconsultorio2-production.up.railway.app'
   const getAllUsers = async () => {
     try {
       const token = localStorage.getItem("token");

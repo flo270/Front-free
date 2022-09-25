@@ -9,13 +9,14 @@ const Login = () => {
 const navigate = useNavigate()
 const [email, setEmail] = useState()
 const [password, setPassword] = useState()
-const baseUrl= "  https://backendconsultorio2-production.up.railway.app";
+const baseUrl= "https://backendconsultorio2-production.up.railway.app";
+
 const handleLogin = async (e)=>{
 e.preventDefault()
 if(email===undefined || password===undefined){
     alert('Campos requeridos')
 }else{
-    try {
+   try {
         await axios.post(`${baseUrl}/users/login`,{
             email:email,
             password:password
@@ -29,8 +30,9 @@ if(email===undefined || password===undefined){
         }
         )
     } catch (error) {
-        alert(error.response.data)
-    }
+        console.log(error.response.data)
+        alert(error.response.msg)
+    } 
 }
 }  
 useEffect(() => {

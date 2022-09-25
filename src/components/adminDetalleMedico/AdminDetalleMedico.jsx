@@ -15,7 +15,7 @@ const AdminDetalleMedico = () => {
 
   const navigate = useNavigate()
 
-const baseUrl='https://consultoriomedicoarg.herokuapp.com'
+  const baseUrl ='https://backendconsultorio2-production.up.railway.app'
 
 const getByIdOneMed=()=>{
   axios.get(`${ baseUrl}/medico/${_id}`)

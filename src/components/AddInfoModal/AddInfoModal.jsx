@@ -6,7 +6,7 @@ const AddInfoModal = () => {
     const {body, form,border,inputBorder,button,input,title,img}=styles
     const [titulo, setTitulo] = useState()
     const [cuerpo, setCuerpo] = useState()
-    const baseUrl="https://consultoriomedicoarg.herokuapp.com";
+    const baseUrl="https://backendconsultorio2-production.up.railway.app";
 
     const addInfo = (event) => {
         event.preventDefault();

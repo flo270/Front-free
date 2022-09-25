@@ -16,7 +16,7 @@ const CrearConsulta = () => {
   const [medicos, setMedicos] = useState()
   const navigate =useNavigate()
 
-  const baseUrl ='http://localhost:8080'
+  const baseUrl ='https://backendconsultorio2-production.up.railway.app'
   const {body,form,border,input,button,title,link,img}=styles
 
   const handleSumit=(e)=>{
@@ -48,7 +48,7 @@ const CrearConsulta = () => {
       }}
 
   const getAllMedicos=async()=>{
-    const AllMedicos= await axios.get(`${process.env.REACT_APP_URL_BASE}/medico`)
+    const AllMedicos= await axios.get(`${baseUrl}/medico`)
     console.log(AllMedicos.data)
    setMedicos(AllMedicos.data)
   }
@@ -56,7 +56,7 @@ const CrearConsulta = () => {
     getAllMedicos()
   }, [])
   const getAllPacientes=async()=>{
-    const AllPacientes= await axios.get(`${process.env.REACT_APP_URL_BASE}/pac`)
+    const AllPacientes= await axios.get(`${baseUrl}/pac`)
     console.log(AllPacientes.data.paciente)
    setPacientes(AllPacientes.data.paciente)
   }

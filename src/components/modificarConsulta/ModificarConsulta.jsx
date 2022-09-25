@@ -19,7 +19,7 @@ const ModificarConsulta = () => {
     const baseUrl ='https://backendconsultorio2-production.up.railway.app'
     const {body,form,border,input,button,title,link}=styles
   const getOneConsulta=()=>{
-    axios.get(`${process.env.REACT_APP_URL_BASE}/consulta/${_id}`)
+    axios.get(`${baseUrl}/consulta/${_id}`)
     .then(response=>{
       console.log(response.data.getIdConsulta)
       setPaciente(response.data.getIdConsulta.paciente)

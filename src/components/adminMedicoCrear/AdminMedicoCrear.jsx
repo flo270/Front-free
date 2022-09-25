@@ -11,7 +11,7 @@ const AdminMedicoCrear = () => {
     const [horario4, setHorario4] = useState()
   
     const navigate = useNavigate()
-const baseUrl='https://consultoriomedicoarg.herokuapp.com'
+    const baseUrl ='https://backendconsultorio2-production.up.railway.app'
 
 const {body,form,border,input,button,title,link}=styles
 

@@ -7,7 +7,7 @@ const AdminUserTable = ({user}) => {
   const { email, nombreCompleto, admin, banned, _id, password} = user;
 
   const token = localStorage.getItem("token")
-  const baseUrl="https://consultoriomedicoarg.herokuapp.com";
+  const baseUrl ='https://backendconsultorio2-production.up.railway.app'
   
   const bannUser = () => {
     try {

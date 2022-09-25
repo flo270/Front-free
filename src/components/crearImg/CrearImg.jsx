@@ -7,7 +7,7 @@ import styles from '../crearImg/CrearImg.module.css'
 const CrearImg = () => {
     const [img, setImg] = useState()
     const [nombre, setNombre] = useState()
-    const baseUrl ='http://localhost:8080'
+    const baseUrl ='https://backendconsultorio2-production.up.railway.app'
   const {body,form,border,input,button,title,link,imge}=styles
   const navigate = useNavigate()
   const handleSumit=(e)=>{
@@ -16,7 +16,7 @@ const CrearImg = () => {
             alert("Todos los campos son obligatorios")
     }else{
         try {
-          axios.post(`${process.env.REACT_APP_URL_BASE}/imagenes/crear`,{
+          axios.post(`${baseUrl}/imagenes/crear`,{
            img:img,nombre:nombre
           })
           .then((res)=>{

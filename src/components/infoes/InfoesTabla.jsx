@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 const infoesTabla = ({infoes}) => {
   
     const {titulo,cuerpo,_id,fav} = infoes
-    const baseUrl="https://consultoriomedicoarg.herokuapp.com";
+    const baseUrl ='https://backendconsultorio2-production.up.railway.app'
   const navigate = useNavigate()
     const {border,button,buttonDelete}=styles
 

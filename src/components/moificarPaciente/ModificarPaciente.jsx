@@ -17,7 +17,7 @@ const [num_hc, setNum_hc] = useState()
     const baseUrl ='https://backendconsultorio2-production.up.railway.app'
     const {body,form,border,input,button,title,link}=styles
  const getOnePaciente= ()=>{
-    axios.get(`${process.env.REACT_APP_URL_BASE}/pac/${_id}`)
+    axios.get(`${baseUrl}/pac/${_id}`)
     .then(response=>{
          console.log(response.data.getIdPaciente)
          setNombre(response.data.getIdPaciente.nombre)
@@ -40,7 +40,7 @@ const [num_hc, setNum_hc] = useState()
                 alert("Todos los campos son obligatorios")
         }else{
             try {
-              axios.put(`${process.env.REACT_APP_URL_BASE}/pac/${_id}`,{
+              axios.put(`${baseUrl}/pac/${_id}`,{
                 nombre:nombre,
                 apellido:apellido,
                 fecha_nacimiento:fecha_nacimiento,

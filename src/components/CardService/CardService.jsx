@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom'
 import styles from '../CardService/CardService.module.css'
 const CardService = () => {
     const [info, setInfo] = useState([])
-    const baseUrl= "http://localhost:8080";
+    const baseUrl ='https://backendconsultorio2-production.up.railway.app'
     const getData = async()=>{
-        const res =  await axios(`${process.env.REACT_APP_URL_BASE}/info` )
+        const res =  await axios(`${baseUrl}/info` )
         setInfo(res.data.Infoes.filter(info=>info.fav))
       }
     useEffect(() => {

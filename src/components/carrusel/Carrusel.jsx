@@ -4,9 +4,10 @@ import axios from 'axios'
 const Carrusel = () => {
   const [imgFav, setImgFav] = useState([])
 //  const {img}=styles
-  const baseUrl= "http://localhost:8080";
+const baseUrl ='https://backendconsultorio2-production.up.railway.app'
+
   const getData = async()=>{
-    const dataImg =  await axios(`${process.env.REACT_APP_URL_BASE}/imagenes` )
+    const dataImg =  await axios(`${baseUrl}/imagenes` )
     const img=dataImg.data.imagenes.filter(img=>img.fav)
     console.log(img)
     setImgFav(dataImg.data.imagenes.filter(img=>img.fav))

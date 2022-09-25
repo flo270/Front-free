@@ -16,7 +16,7 @@ const ModificarInfo = () => {
   const baseUrl='https://backendconsultorio2-production.up.railway.app'
 
   const getOne=()=>{
-    axios.get(`${process.env.REACT_APP_URL_BASE}/info/${_id}`)
+    axios.get(`${baseUrl}/info/${_id}`)
     .then(response=>{
       console.log(response.data.getId)
      setTitulo(response.data.getId.titulo)
@@ -34,7 +34,7 @@ const ModificarInfo = () => {
             alert("Todos los campos son obligatorios")
     }else{
         try {
-          axios.put(`${process.env.REACT_APP_URL_BASE}/info/${_id}`,{
+          axios.put(`${baseUrl}/info/${_id}`,{
           titulo:titulo,
           cuerpo:cuerpo
           })

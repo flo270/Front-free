@@ -5,7 +5,7 @@ const Cards = () => {
 const {title,body,border,form}= styles
 
   const [card, setCard] = useState([])
-  const baseUrl="http://localhost:8080"
+  const baseUrl ='https://backendconsultorio2-production.up.railway.app'
   const getData = async()=>{
     const res =  await axios(`${baseUrl}/medico` )
     const med= res.data

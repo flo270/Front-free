@@ -13,7 +13,7 @@ const CrearPaciente = () => {
 
     const navigate =useNavigate()
 
-    const baseUrl ='http://localhost:8080'
+    const baseUrl ='https://backendconsultorio2-production.up.railway.app'
     const {body,form,border,input,button,title,link}=styles
 
     const handleSumit=(e)=>{
@@ -23,7 +23,7 @@ const CrearPaciente = () => {
                 alert("Todos los campos son obligatorios")
         }else{
             try {
-              axios.post(`${process.env.REACT_APP_URL_BASE}/pac/crear`,{
+              axios.post(`${baseUrl}/pac/crear`,{
                 nombre:nombre,
                 apellido:apellido,
                 fecha_nacimiento:fecha_nacimiento,
